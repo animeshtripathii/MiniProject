@@ -1,10 +1,10 @@
 // index.js
 
 // Function to render quotes as products
-function renderProducts(products) {
+function renderProducts(product) {
     const box = document.getElementById('box');
     box.innerHTML = '';
-    products.forEach(product => {
+    product.forEach(product => {
         const div = document.createElement('div');
         div.className = 'product-box';
         div.innerHTML = `
