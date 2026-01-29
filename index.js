@@ -32,10 +32,10 @@ document.getElementById('search').addEventListener('click', () => {
     fetch('https://dummyjson.com/products')
         .then(res => res.json())
         .then(data => {
-            const filteredProducts = data.products.filter(product => 
+            const filteredProduct = data.products.filter(product => 
                 product.title.toLowerCase().includes(query)
             );
-            renderProducts(filteredProducts);
+            renderProducts(filteredProduct);
         })
         .catch(err => {
             console.error('Error fetching quotes:', err);
