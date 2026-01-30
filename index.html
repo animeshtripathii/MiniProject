@@ -60,8 +60,10 @@
         padding-top: 24px;
     }
     .search-wrapper {
-        position: relative; /* Anchor for the suggestion box */
+        position: relative; 
         display: flex;
+        gap:10px;
+        margin-bottom: 20px;
     }
     #searchInput {
         padding: 8px 12px;
@@ -84,9 +86,9 @@
     /* Suggestion Box Styling */
     #suggestion {
         position: absolute;
-        top: 100%; /* Positions it directly below the input */
+        top: 100%; 
         left: 0;
-        width: 250px; /* Matches input width */
+        width: 250px; 
         background: white;
         border: 1px solid #ccc;
         border-top: none;
@@ -118,13 +120,23 @@
         border-radius: 4px;
         font-size: 1rem;
         cursor: pointer;
-    }   
+    } 
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    h1{
+        text-align: center;
+        padding: 20px 0;
+    }
     </style>
 </head>
 <body>
-
+  <h1>Product Store</h1>
     <div class="search-container">
+       
         <div class="search-wrapper">
+           
             <input type="text" id="searchInput" placeholder="Search products...">
             <button id="search">Search</button>
             <button id="history"><a href="./history.html">View Search History</a></button>
