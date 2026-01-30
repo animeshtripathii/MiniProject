@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        #search-history-box {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        #clear-all {
+            background: #ff5252;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        #clear-all:hover {
+            background: #d32f2f;
+        }
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .history-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #2196f3;
+        }
+        .query-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .query-text {
+            font-weight: 600;
+            color: #2196f3;
+            font-size: 1.1rem;
+            text-transform: capitalize;
+        }
+        .query-time {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4px;
+        }
+        .delete-btn {
+            color: #bbb;
+            cursor: pointer;
+            padding: 8px;
+            transition: color 0.2s;
+        }
+        .delete-btn:hover {
+            color: #ff5252;
+        }
+        .empty-state {
+            text-align: center;
+            color: #999;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-history-box">
+        <div class="header">
+            <h1>Your Search History</h1>
+            <button id="clear-all">Clear All</button>
+        </div>
+        <div id="history-list"></div>
+    </div>
+    <script src="history.js"></script>
+</body>
+</html>
