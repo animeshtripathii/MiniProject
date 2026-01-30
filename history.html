@@ -7,56 +7,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
-            padding: 70px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 40px 20px;
+            color: #333;
         }
 
-        .history-container {
-            width: 100%;
-            max-width: 700px;
-            margin-bottom: 40px;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .section-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #f1f1f1;
             padding-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        h1 {
+        .header h1 {
+            font-size: 1.4rem;
             margin: 0;
-            font-size: 1.5rem;
-            color: #333;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-clear {
-            background: #ff5252;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
+            background-color: #ffeded;
+            color: #ff5252;
+            border: 1px solid #ffcfcf;
+            padding: 8px 16px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: 0.2s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .btn-clear:hover {
-            background: #d32f2f;
+            background-color: #ff5252;
+            color: white;
         }
 
         .history-item {
@@ -64,72 +66,74 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px;
-            margin-bottom: 12px;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            transition: 0.2s;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
         }
 
         .history-item:hover {
-            border-color: #2196f3;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+            border-color: #3498db;
         }
 
         .info-content {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
             flex-grow: 1;
+            cursor: pointer;
         }
 
         .text-primary {
+            display: block;
             font-weight: 600;
-            color: #2196f3;
-            font-size: 1.1rem;
+            color: #3498db;
+            font-size: 1.05rem;
             text-transform: capitalize;
         }
 
         .text-secondary {
+            display: block;
             font-size: 0.8rem;
-            color: #888;
+            color: #95a5a6;
             margin-top: 4px;
         }
 
         .delete-btn {
-            color: #bbb;
+            background: none;
+            border: none;
+            color: #bdc3c7;
             cursor: pointer;
-            padding: 8px;
-            margin-left: 10px;
+            padding: 10px;
+            font-size: 1.1rem;
+            transition: color 0.2s;
         }
 
         .delete-btn:hover {
-            color: #ff5252;
+            color: #e74c3c;
         }
 
         .empty-state {
             text-align: center;
-            color: #999;
-            padding: 20px 0;
+            padding: 30px;
+            color: #bdc3c7;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
 
-    <div class="history-container">
+    <div class="container">
         <div class="section-box">
             <div class="header">
-                <h1>Your Search History</h1>
-                <button id="clear-all" class="btn-clear">Clear All</button>
+                <h1><i class="fas fa-search"></i> Search History</h1>
+                <button id="clear-all" class="btn-clear">Clear History</button>
             </div>
             <div id="history-list"></div>
         </div>
-    </div>
 
-    <div class="history-container">
         <div class="section-box">
             <div class="header">
-                <h1>Viewed Products</h1>
+                <h1><i class="fas fa-eye"></i> Recently Viewed</h1>
                 <button id="clear-views" class="btn-clear">Clear Views</button>
             </div>
             <div id="view-list"></div>
