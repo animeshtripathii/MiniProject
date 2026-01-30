@@ -28,6 +28,7 @@
         flex-direction: column;
         align-items: center;
         transition: box-shadow 0.2s;
+        cursor: pointer;
     }
     .product-box:hover {
         box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -51,8 +52,6 @@
         font-weight: bold;
         margin-top: 4px;
     }
-
-    /* Layout for Search and Suggestions */
     .search-container {
         display: flex;
         justify-content: center;
@@ -68,7 +67,7 @@
     #searchInput {
         padding: 8px 12px;
         border: 1px solid #ccc;
-        border-radius: 4px 0 0 4px;
+        border-radius: 4px;
         font-size: 1rem;
         outline: none;
         width: 250px;
@@ -78,12 +77,10 @@
         border: 1px solid #2196f3;
         background: #2196f3;
         color: #fff;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
         font-size: 1rem;
         cursor: pointer;
     }
-
-    /* Suggestion Box Styling */
     #suggestion {
         position: absolute;
         top: 100%; 
@@ -112,7 +109,6 @@
         display: none;
     }
     #history {
-        margin-left: 10px;
         padding: 8px 12px;
         border: 1px solid #4caf50;
         background: #4caf50;
@@ -121,22 +117,50 @@
         font-size: 1rem;
         cursor: pointer;
     } 
-    a{
+    a {
         color: white;
         text-decoration: none;
     }
-    h1{
+    h1 {
         text-align: center;
         padding: 20px 0;
+    }
+    /* Pagination Styles */
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0 40px 0;
+    }
+    .page-btn {
+        padding: 8px 20px;
+        border: 1px solid #2196f3;
+        background: #fff;
+        color: #2196f3;
+        cursor: pointer;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .page-btn:hover:not(:disabled) {
+        background: #e3f2fd;
+    }
+    .page-btn:disabled {
+        border-color: #ccc;
+        color: #aaa;
+        cursor: not-allowed;
+    }
+    .page-info {
+        font-size: 1rem;
+        color: #555;
+        font-weight: bold;
     }
     </style>
 </head>
 <body>
-  <h1>Product Store</h1>
+    <h1>Product Store</h1>
     <div class="search-container">
-       
         <div class="search-wrapper">
-           
             <input type="text" id="searchInput" placeholder="Search products...">
             <button id="search">Search</button>
             <button id="history"><a href="./history.html">History</a></button>
@@ -145,6 +169,7 @@
     </div>
 
     <div id="box"></div>
+    <div id="pagination" class="pagination-container"></div>
 
     <script src="index.js"></script>
 </body>
