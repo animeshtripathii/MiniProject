@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         timestamp: Date.now()
                     });
                 }
-             console.log(viewHistory);
                 // Keep only last 10 views
                 localStorage.setItem('viewedProducts', JSON.stringify(viewHistory.slice(0, 10)));
             });
