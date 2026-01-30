@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1100px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3436;
+            text-decoration: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #636e72;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #00b894;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .product-heading {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #2d3436;
+            letter-spacing: -1px;
+        }
+
+        .product-card {
+            background: #fff;
+            display: flex;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .product-image {
+            flex: 1;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid #f0f0f0;
+        }
+
+        .product-title {
+            margin: 0 0 15px 0;
+            font-size: 2.2rem;
+            color: #2d3436;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00b894;
+            margin-bottom: 30px;
+        }
+
+        .add-btn {
+            width: fit-content;
+            padding: 15px 40px;
+            background-color: #00b894;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: #009475;
+            box-shadow: 0 4px 12px rgba(0,184,148,0.3);
+        }
+
+        @media (max-width: 900px) {
+            .product-card {
+                flex-direction: column;
+            }
+            .product-info {
+                padding: 40px;
+                border-left: none;
+                border-top: 1px solid #f0f0f0;
+            }
+            .product-image {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">STORE</a>
+            <div class="nav-menu">
+                <a href="./index.html">Home</a>
+                <a href="#">Cart</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container"></div>
+    <script src="product_detail.js"></script>
+</body>
+</html>

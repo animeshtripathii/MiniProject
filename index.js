@@ -11,6 +11,10 @@ function renderProducts(products) {
             <div class="price">$${product.price}</div>
         `;
         box.appendChild(div);
+        div.addEventListener('click', () => {
+            console.log(product.id);
+            window.location.href = `./product_detail.html?id=${product.id}`;
+        });
     });
 }
 
@@ -76,7 +80,7 @@ searchInput.addEventListener('input', () => {
         div.addEventListener('click', () => {
             searchInput.value = item.query;
             suggestionDiv.innerHTML = '';
-            document.getElementById('search').click(); // Auto-trigger search on click
+            document.getElementById('search').click(); 
         });
         suggestionDiv.appendChild(div);
     });
