@@ -1,4 +1,3 @@
-// Function to render products
 function renderProducts(products) {
     const box = document.getElementById('box');
     box.innerHTML = '';
@@ -12,21 +11,27 @@ function renderProducts(products) {
         `;
         box.appendChild(div);
         div.addEventListener('click', () => {
-            console.log(product.id);
+            // Save to Viewed Products before redirecting
+            saveToViewHistory(product);
             window.location.href = `./product_detail.html?id=${product.id}`;
         });
     });
 }
 
-// Initial Fetch
+function saveToViewHistory(product) {
+    let viewed = JSON.parse(localStorage.getItem('viewedProducts')) || [];
+    // Prevent duplicates
+    viewed = viewed.filter(p => p.id !== product.id);
+    viewed.unshift({ id: product.id, title: product.title });
+    // Keep only last 10 items
+    localStorage.setItem('viewedProducts', JSON.stringify(viewed.slice(0, 10)));
+}
+
 fetch('https://dummyjson.com/products')
     .then(res => res.json())
-    .then(data => {
-        renderProducts(data.products);
-    })
+    .then(data => renderProducts(data.products))
     .catch(err => console.error('Error fetching products:', err));
 
-// Search functionality
 document.getElementById('search').addEventListener('click', () => {
     const query = document.getElementById('searchInput').value.toLowerCase().trim();
     if (!query) return;
@@ -40,39 +45,35 @@ document.getElementById('search').addEventListener('click', () => {
             renderProducts(filteredProduct);
         });
 
-    // Save unique suggestions to local storage
     let suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
     const isDuplicate = suggestions.some(item => item.query === query);
     
     if (!isDuplicate) {
         suggestions.push({ query: query, time: Date.now() });
         localStorage.setItem('suggestions', JSON.stringify(suggestions));
+        // Update the UI if the function exists
+        if (typeof renderSearchHistory === 'function') renderSearchHistory();
     }
     
-    document.getElementById('suggestion').innerHTML = ''; // Clear suggestions after search
+    document.getElementById('suggestion').innerHTML = '';
 });
 
-// Real-time Suggestions logic
 const suggestionDiv = document.getElementById('suggestion');
 const searchInput = document.getElementById('searchInput');
 
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase().trim();
-    
     if (!query) {
         suggestionDiv.innerHTML = '';
         return;
     }
 
     const suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
-
-    // Filter suggestions based on input
     const filteredSuggestions = suggestions.filter(item => 
         item.query.toLowerCase().includes(query)
     );
 
     suggestionDiv.innerHTML = '';
-
     filteredSuggestions.forEach(item => {
         const div = document.createElement('div');
         div.className = 'suggestion-item';
