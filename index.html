@@ -109,6 +109,16 @@
     #suggestion:empty {
         display: none;
     }
+    #history {
+        margin-left: 10px;
+        padding: 8px 12px;
+        border: 1px solid #4caf50;
+        background: #4caf50;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+    }   
     </style>
 </head>
 <body>
@@ -117,6 +127,7 @@
         <div class="search-wrapper">
             <input type="text" id="searchInput" placeholder="Search products...">
             <button id="search">Search</button>
+            <button id="history"><a href="./history.html">View Search History</a></button>
             <div id="suggestion"></div>
         </div>
     </div>
